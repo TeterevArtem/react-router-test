@@ -1,5 +1,10 @@
 import React from "react";
+import s from "./style.module.scss";
 
 export default function Footer() {
-  return <div>This site is test.</div>;
+  return (
+    <footer className={s.footer}>
+      <p>This site is test.</p>
+    </footer>
+  );
 }

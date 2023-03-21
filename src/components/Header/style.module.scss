@@ -15,12 +15,13 @@
     text-transform: uppercase;
     color: white;
     transition: 0.3s;
+    &_active {
+      color: #00bfff;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
     &:hover {
       color: #00bfff;
-    }
-    &.active {
-      color: #00bfff;
-      text-decoration: underline;
     }
   }
 }

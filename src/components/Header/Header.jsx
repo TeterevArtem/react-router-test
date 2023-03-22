@@ -1,25 +1,26 @@
-import {Link} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import s from "./style.module.scss";
+
+const links = [
+  { link: "/", text: "home" },
+  { link: "/about", text: "about" },
+  { link: "/blog", text: "blog" },
+];
+
+const setActive = ({ isActive }) =>
+  isActive ? s.header__link_active : s.header__link;
 
 function Header() {
   return (
     <header className={s.header}>
       <ul className={s.header__list}>
-        <li className={s.header__item}>
-          <Link to="/" className={s.header__link}>
-            home
-          </Link>
-        </li>
-        <li className={s.header_item}>
-          <Link to="/about" className={s.header__link}>
-            about
-          </Link>
-        </li>
-        <li className={s.header_item}>
-          <Link to="/blog" className={s.header__link}>
-            blog
-          </Link>
-        </li>
+        {links.map((item) => (
+          <li className={s.header__item}>
+            <NavLink to={item.link} className={setActive}>
+              {item.text}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </header>
   );

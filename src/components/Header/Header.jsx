@@ -7,18 +7,16 @@ const links = [
   { link: "/blog", text: "blog" },
 ];
 
+const setActive = ({ isActive }) =>
+  isActive ? s.header__link_active : s.header__link;
+
 function Header() {
   return (
     <header className={s.header}>
       <ul className={s.header__list}>
         {links.map((item) => (
           <li className={s.header__item}>
-            <NavLink
-              to={item.link}
-              className={({ isActive }) =>
-                isActive ? s.header__link_active : s.header__link
-              }
-            >
+            <NavLink to={item.link} className={setActive}>
               {item.text}
             </NavLink>
           </li>

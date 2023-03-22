@@ -4,7 +4,7 @@ import s from "./style.module.scss";
 const links = [
   { link: "/", text: "home" },
   { link: "/about", text: "about" },
-  { link: "/blog", text: "blog" },
+  { link: "/post", text: "post" },
 ];
 
 const setActive = ({ isActive }) =>
@@ -14,8 +14,8 @@ function Header() {
   return (
     <header className={s.header}>
       <ul className={s.header__list}>
-        {links.map((item) => (
-          <li className={s.header__item}>
+        {links.map((item, index) => (
+          <li key={index} className={s.header__item}>
             <NavLink to={item.link} className={setActive}>
               {item.text}
             </NavLink>
